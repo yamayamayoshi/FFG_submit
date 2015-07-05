@@ -32,6 +32,11 @@ public class Finder {
             flag &= checkTargetType(file, args.getType());
         }
 
+	//size
+	if(args.getSize() != null){
+            flag &= checkTargetSize(file, args.getSize());
+        }
+	
         return flag;
     }
 
@@ -56,6 +61,27 @@ public class Finder {
         return false;
     }
 
+    //sizeオプションが指定された時の処理
+     private boolean checkTargetSize(File file, String sizeString){
+        if(file.isFile()){
+            char sign = sizeString.charAt(0);
+            String string = sizeString.substring(1);
+            int size = Integer.parseInt(string);
+
+            switch(sign){
+            case '>':
+                return file.length() > size;
+            case '<':
+                return file.length() < size;
+            case '=':
+                return file.length() == size;
+            default:
+                // ignore
+            }
+        }
+        return false;
+    }
+    
     private void traverse(List<String> list, File dir){
         if(isTarget(dir)){
             list.add(dir.getPath());

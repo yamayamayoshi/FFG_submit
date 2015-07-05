@@ -1,4 +1,3 @@
-//MainƒNƒ‰ƒX‚Ìì¬
 package com.github.finder;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.CmdLineException;
@@ -26,7 +25,7 @@ public class Main{
         return args;
     }
     
-    public static void main(String[] arguments) {
+    public static void main(String[] args) {
         new Main(args);
     }
 }

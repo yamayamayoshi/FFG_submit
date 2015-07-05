@@ -48,13 +48,11 @@ public class Finder {
         return flag;
     }
 
-    //nameオプション指定された時の処理
      private boolean checkTargetName(File file, String pattern){
         String name = file.getName();
         return name.indexOf(pattern) >= 0;
     }
 
-    //typeオプション指定された時の処理
     private boolean checkTargetType(File file, String type){
         type = type.toLowerCase();
         if(type.equals("d") || type.equals("directory")){
@@ -69,7 +67,6 @@ public class Finder {
         return false;
     }
 
-    //sizeオプションが指定された時の処理
      private boolean checkTargetSize(File file, String sizeString){
         if(file.isFile()){
             char sign = sizeString.charAt(0);
@@ -90,7 +87,6 @@ public class Finder {
         return false;
     }
 
-    //grepオプションが指定された時の処理
     private boolean checkGrep(File file, String pattern){
         if(file.isFile()){
             try(BufferedReader in = new BufferedReader(new FileReader(file))){
@@ -100,7 +96,10 @@ public class Finder {
                         return true;
                     }
                 }
-            }
+		}
+	    catch (IOException e){
+		return false;
+	    }
         }
         return false;
     }

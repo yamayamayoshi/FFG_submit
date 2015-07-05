@@ -7,7 +7,7 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>File Finder</name>
-  <url>http://github.com/ksuse/FileFinder/</url>
+  <url>http://github.com/yamayamayoshi/FFG_submit/</url>
   <inceptionYear>2015</inceptionYear>
 
   <dependencies>
